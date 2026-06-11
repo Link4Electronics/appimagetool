@@ -20,6 +20,15 @@ case "$ARCH" in
     aarch64)
         platform=linux/arm64/v8
         ;;
+    ppc64)
+        platform=linux/ppc64
+        ;;
+    ppc64le)
+        platform=linux/ppc64le
+        ;;
+    ppc)
+        platform=linux/ppc
+        ;;
     *)
         echo "unknown architecture: $ARCH"
         exit 2

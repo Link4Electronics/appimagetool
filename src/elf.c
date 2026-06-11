@@ -18,12 +18,9 @@ typedef Elf32_Nhdr Elf_Nhdr;
 static char *fname;
 static Elf64_Ehdr ehdr;
 
-#if __BYTE_ORDER == __LITTLE_ENDIAN
-#define ELFDATANATIVE ELFDATA2LSB
-#elif __BYTE_ORDER == __BIG_ENDIAN
-#define ELFDATANATIVE ELFDATA2MSB
-#else
-#error "Unknown machine endian"
+// ELFDATANATIVE is set by CMake's TestBigEndian module via src/CMakeLists.txt
+#ifndef ELFDATANATIVE
+#error "ELFDATANATIVE not defined by build system; check CMake endianness detection"
 #endif
 
 static uint16_t file16_to_cpu(uint16_t val)

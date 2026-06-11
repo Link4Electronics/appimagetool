@@ -24,6 +24,8 @@ target_compile_definitions(appimagetool
     PRIVATE -DGIT_VERSION="${GIT_VERSION}"
     PRIVATE -DBUILD_NUMBER="${BUILD_NUMBER}"
     PRIVATE -DBUILD_DATE="${DATE}"
+    PRIVATE $<$<BOOL:${HOST_IS_BIG_ENDIAN}>:ELFDATANATIVE=ELFDATA2MSB>
+    PRIVATE $<$<NOT:$<BOOL:${HOST_IS_BIG_ENDIAN}>>:ELFDATANATIVE=ELFDATA2LSB>
 )
 
 target_include_directories(appimagetool
