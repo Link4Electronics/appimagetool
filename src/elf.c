@@ -18,7 +18,7 @@ typedef Elf32_Nhdr Elf_Nhdr;
 static char *fname;
 static Elf64_Ehdr ehdr;
 
-// ELFDATANATIVE is set by CMake's TestBigEndian module via src/CMakeLists.txt
+// ELFDATANATIVE is set by CMake's CMAKE_C_BYTE_ORDER detection via src/CMakeLists.txt
 #ifndef ELFDATANATIVE
 #error "ELFDATANATIVE not defined by build system; check CMake endianness detection"
 #endif
